@@ -67,8 +67,9 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     internal var messageCollectionViewBottomInset: CGFloat = 0 {
         didSet {
-            messagesCollectionView.contentInset.bottom = messageCollectionViewBottomInset
-            messagesCollectionView.scrollIndicatorInsets.bottom = messageCollectionViewBottomInset
+            let inputBarHeight = messageInputBar.intrinsicContentSize.height
+            messagesCollectionView.contentInset.bottom = messageCollectionViewBottomInset + inputBarHeight
+            messagesCollectionView.scrollIndicatorInsets.bottom = messageCollectionViewBottomInset + inputBarHeight
         }
     }
 
