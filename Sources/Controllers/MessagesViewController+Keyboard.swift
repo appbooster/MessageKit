@@ -55,9 +55,8 @@ extension MessagesViewController {
         guard let keyboardEndFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? CGRect else { return }
         
         guard !isMessagesControllerBeingDismissed else { return }
-        
-        let tabBarHeight = tabBarController?.tabBar.bounds.height ?? 0
-        let newBottomInset = max(view.frame.height - tabBarHeight - keyboardEndFrame.minY - iPhoneXBottomInset, 0)
+
+        let newBottomInset = max(view.frame.height - keyboardEndFrame.minY - iPhoneXBottomInset, 0)
         let differenceOfBottomInset = newBottomInset - messageCollectionViewBottomInset
         
         if maintainPositionOnKeyboardFrameChanged && differenceOfBottomInset != 0 {
